@@ -1,0 +1,29 @@
+.btn-container{
+    display: flex;
+    position:absolute;
+    width: 100%;
+    top: 40%;
+    left: 0;
+}
+
+.description-container{
+    position: absolute;
+    bottom: 110px;
+    left: 10px;
+    color: white;
+    background-color: rgba(128, 128, 128, 0.39);
+}
+
+.thumbnail-container img{
+    max-width: 100%;
+    object-fit: fill;
+    border: 1px solid rgb(34, 34, 34);
+    opacity: .7;
+    transition: all .5s;
+}
+
+.thumbnail-container img.active{
+    border: 1px solid black;
+    opacity: 1;
+}
+
