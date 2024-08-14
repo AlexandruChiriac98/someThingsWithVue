@@ -20,7 +20,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="card">
-                        <img :src="movie.img[currentImgIndex]" class="card-img-top" alt="">
+                        <img :src="movie.img[currentImgIndex]" class="card-img-top" @mouseover="stopMyInterval()" @mouseout="myInterval()" alt="">
                         
                         <div class="description-container">
                             <h3>{{ movie.title }}</h3>
@@ -29,20 +29,20 @@
                         </div>
 
                         <div class="btn-container">
-                            <div class="btn btn-light">
-                                <i class="fas fa-chevron-left" @click="onClickPrev"></i>
+                            <div class="btn btn-light" @click="onClickPrev">
+                                <i class="fas fa-chevron-left"></i>
                             </div>
 
                             <div class="flex-fill"></div>
 
-                            <div class="btn btn-light">
-                                <i class="fas fa-chevron-right" @click="onClickNext"></i>
+                            <div class="btn btn-light" @click="onClickNext">
+                                <i class="fas fa-chevron-right"></i>
                             </div>
                         </div>
 
                         <div class="d-flex flex-wrap">
                             <div class="thumbnail-container" v-for="(image, i) in movie.img" :style=" `width: calc( 100% / ${movie.img.length})` ">
-                                <img :src="image" :class="(i === currentImgIndex) ? 'active' : '' " @click="">
+                                <img :src="image" :class="(i === currentImgIndex) ? 'active' : '' " @click="onClickThumbImg(i)">
                             </div>
                         </div>
                     </div>
