@@ -9,11 +9,113 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
-<body>
+<body class="bg-dark text-white">
     <div id="app">
-        
-    </div>
+
+        <main class="mt-5">
+            <div class=" d-flex justify-content-center align-items-center flex-column">
+                <div class="col-md-6">
+                    <h1>I'm A Banana</h1>
+                    <div>Yo soy un {{tettore}} y tengo {{fattore}}</div>
     
+                    <input class="input-group-text mt-3" type="text" placeholder="testo v-model" v-model="vmodel">
+                    <input class="input-group-text mt-3" type="text" placeholder="classe v-bind" v-model="vbind">
+    
+                    <div :class="vbind">{{vmodel}}</div>
+    
+                </div>
+
+                <div class="col-6 mt-5">
+                    <img class="img-fluid" :src="cardImmagine.img">
+                    <div>{{cardImmagine.text}}</div>
+                </div>
+
+                <button class="btn" :class="classBtn" @click="onBtnClick">Change</button>
+
+            </div>
+            <div class="mt-5 d-flex justify-content-center">
+                <div class="col-6">
+                    <h1>Dice Game</h1>
+                    <div class="row mt-3">
+                        <div class="col">
+                            Dado tuo: <strong>{{dadoMio}}</strong>
+                        </div>
+                        <div class="col">
+                            Dado suo: <strong>{{dadoSuo}}</strong>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-5">
+                        <button class="btn btn-outline-light" @click="startDiceGame">Start Dadi</button>
+                    </div>
+                    <h1 class="text-center mt-3"><strong>{{risultato}}</strong></h1>
+                </div>
+
+            </div>
+
+            <div class="mt-5 d-flex justify-content-center">
+                <div class="col-6">
+                    <div v-if="pError" class="alert alert-dark">
+                        Sbagliato pass
+                    </div>
+                    <div v-if="loggato === true" class="mt-3">
+                        <h2 class="mt-3">Dentro</h2>
+                        <button class="btn btn-danger mt-3" @click="onClickEsci">Esci</button>
+                    </div>
+                    <div v-else class="mt-3">
+                        <h2 class="mt-3">Fuori</h2>
+                        <input type="password" class="input-group-text mt-3" v-model="password">
+                        <button class="btn btn-outline-primary mt-3" @click="onClickEntra">Entra</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5 d-flex justify-content-center">
+                <div class="col-8">
+                    <h1 class="mt-3">List v-for</h1>
+                    <div class="container" v-for="list in listTo">
+                        <h3>{{list.text}}</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5 d-flex justify-content-center">
+                <div class="col-8">
+                    <h1 class="mt-3">Slider v-for</h1>
+                    <div class="card">
+                        <img :src="slider.img[currentIndex]" class="card-img-top" alt="">
+                        <div class="btn-container justify-content-between">
+                            <button class="btn btn-dark" @click="clickNext()">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+
+                            <button class="btn btn-dark" @click="clickNext()">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="d-flex flex-wrap">
+                            <div class="thumbnail-img" v-for="images in slider.img" :style="`width: calc( 100% / ${slider.img.length})`">
+                                <img :src="images" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5 d-flex justify-content-center">
+                <div class="col-8">
+                    <h1>Lista messaggi con risposta</h1>
+                    <div class="container-message">
+
+                    </div>
+                    <div class="input-group mt-3">
+                        <input type="text" class="form-control" placeholder="Che vuoi?">
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="mt-5 p-5"></footer>
+
+    </div>
 
     <script src="js/main.js"></script>
 </body>
