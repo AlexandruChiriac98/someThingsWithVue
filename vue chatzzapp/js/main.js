@@ -24,6 +24,7 @@ const app = createApp ({
                 {text:'la tetta', done: false}
             ],
             currentIndex: 0,
+            timerSlider: null,
             slider: {
                 img: [
                     'https://cdn.marvel.com/u/prod/marvel/i/mg/6/d0/639a7b072f9d4/clean.jpg',
@@ -33,7 +34,19 @@ const app = createApp ({
                 text: 'slider',
                 text2: 'banana'
             },
-            messagge: []
+            timerMessage: null,
+            messaggi: [
+                {
+                    text: 'banana con errfiabe',
+                    date: '12/13/24',
+                },{
+                    text: 'fheo oweuicnwo gtet',
+                    date: '12/13/24',
+                },{
+                    text: 'bci eiiuenco bevewu',
+                    date: '12/13/24',
+                }
+            ]
         }
     },
     methods: {
@@ -89,10 +102,26 @@ const app = createApp ({
             if (this.currentIndex = 0){
                 this.currentIndex = this.currentIndex.length
             }
-        }
+        },
+        autoplay: function (){
+            this.timerSlider = setInterval(this.clickNext, 2500)
+        },
+        stopAutoplay: function (){
+            clearInterval(this.timerSlider)
+        },
+        onClickSendMessage: function (){
+
+        },
+        answer: function () {
+          this.messaggi.push('ok')
+        },
+        MessAnswer: function () {
+            this.timerMessage = setTimeout(this.answer, 3000)
+        },
+
         
     },
     mounted() {
-        
+        this.autoplay()
     },
 }).mount('#app')
