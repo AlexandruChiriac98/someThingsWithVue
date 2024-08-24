@@ -37,16 +37,19 @@ const app = createApp ({
             timerMessage: null,
             messaggi: [
                 {
-                    text: 'banana con errfiabe',
+                    text: 'Hey',
                     date: '12/13/24',
+                    me: true
                 },{
-                    text: 'fheo oweuicnwo gtet',
+                    text: 'Hey',
                     date: '12/13/24',
-                },{
-                    text: 'bci eiiuenco bevewu',
-                    date: '12/13/24',
+                    me: false
                 }
-            ]
+            ],
+            newMessage: {
+                text: '',
+                date: '12/13/24',
+            }
         }
     },
     methods: {
@@ -110,13 +113,23 @@ const app = createApp ({
             clearInterval(this.timerSlider)
         },
         onClickSendMessage: function (){
-
+            this.messaggi.push({
+                text: this.newMessage.text,
+                date: this.newMessage.date,
+                me: true
+            });
+            this.MessAnswer()
         },
         answer: function () {
-          this.messaggi.push('ok')
+          this.messaggi.push({
+            text: 'ok',
+            date: '12/13/24',
+            me: false
+          })
         },
         MessAnswer: function () {
-            this.timerMessage = setTimeout(this.answer, 3000)
+            this.timerMessage = setTimeout(this.answer, 3000),
+            this.newMessage.text = ''
         },
 
         

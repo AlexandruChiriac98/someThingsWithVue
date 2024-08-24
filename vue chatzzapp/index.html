@@ -107,7 +107,7 @@
                 <div class="col-8">
                     <h1>Lista messaggi con risposta</h1>
                     <div class="container-message">
-                        <div class="cloud-message m-1 way-mss" v-for="mss in messaggi">
+                        <div class="cloud-message m-1" :class="(mss.me===false) ? 'way-mss' : 'my-mss'" v-for="mss in messaggi">
                             <p class="message">
                                 {{mss.text}}
                             </p>
@@ -117,8 +117,8 @@
                         </div>
                     </div>
                     <div class="input-group mt-3">
-                        <input type="text" class="form-control" placeholder="Che vuoi?">
-                        <button class="btn btn-light">
+                        <input v-model="newMessage.text" type="text" class="form-control" placeholder="Che vuoi?">
+                        <button class="btn btn-light" @click="onClickSendMessage">
                             <i class="fa-solid fa-comment-dots"></i>
                         </button>
                     </div>
