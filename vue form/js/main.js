@@ -14,7 +14,7 @@ const app = createApp({
     },
     methods: {
         onLoginFormSubmit(){
-            if (this.user.name==="Alex.Banana" && this.user.password==='Banana33' && this.user.email==='banana@gcock.it'){
+            if (this.user.name==="Alex.Banana" && this.user.password==='Banana33' && this.user.email==='banana@glock.it'){
                 this.loggedIn=true;
             } else if (this.user.name!=="Alex.Banana"){
                 this.loginError='user name sbagliato';

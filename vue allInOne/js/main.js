@@ -21,7 +21,7 @@ const app = createApp ({
             listTo:  [
                 {text:'banana', done: false},
                 {text:'il chiappa', done: false},
-                {text:'la tetta', done: false}
+                {text:'Alluce', done: false}
             ],
             currentIndex: 0,
             timerSlider: null,

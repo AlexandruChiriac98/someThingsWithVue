@@ -5,11 +5,11 @@ const app = createApp ({
         return {
             taskList: [
                 {
-                    text: "comprare l'erba",
+                    text: "comprare quello",
                     done: false,
                 },
                 {
-                    text: "comprare l'alcol",
+                    text: "comprare anche altro",
                     done: false,
                 }
             ],
